@@ -4,3 +4,11 @@
 .u-hover-trans:hover {
     opacity: 0.7;
 }
+.c-button{
+    padding: 12px 32px;
+    background-color: #2DB24A;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
