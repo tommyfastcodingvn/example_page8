@@ -1,0 +1,6 @@
+.u-hover-trans {
+    transition: opacity 0.3s ease;
+}
+.u-hover-trans:hover {
+    opacity: 0.7;
+}
