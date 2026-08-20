@@ -75,6 +75,7 @@ body {
     height: 100%;
     z-index: -1;
     background-repeat: no-repeat;
+    background-size: 100% 836px;
 }
 .p-section-hero__top{
     width: 100%;
@@ -118,9 +119,10 @@ body {
 }
 .p-section-hero__top-link-button{
     color: #FFFFFF;
-     font-weight: 600;
-     font-size: 16px;
-     line-height: calc(48/16);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: calc(48/16);
+    white-space: nowrap;
 }
 .p-section-hero__photos{
     width: 100%;
@@ -172,6 +174,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 100px;
+    margin-top: 50px;
 }
 .p-section-about__content{
     width: calc(536/1320*100%);
@@ -236,6 +239,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40px, 48px));
     gap: 12px;
+    width: calc(272/483 *100%);
 }
 
 .p-section-about__content-bottom-item {
@@ -295,13 +299,14 @@ body {
 .p-section-about__photo-item{
     margin: 24px 24px 0 24px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #E6E8EB;
+    box-shadow: 0 -1 0 0 #E6E8EB;
+    min-width: 148px;
 }
 .p-section-about__photo-item:last-child{
     border-bottom: none;
 }
 .p-section-about__photo-item-top{
-    font-size: var(--fs-desc);
+    font-size: var(--fs-h3);
     font-weight: 600;
     line-height: calc(32/24);
     color:#132238 ;
@@ -332,6 +337,7 @@ body {
     color: #424E60;
     font-size: 16px;
     line-height: calc(24/16);
+    max-width: 424px;
 }
 .p-section-gallery__heading-button{
     display: flex;
@@ -390,11 +396,11 @@ body {
 .p-section-gallery__photos{
     padding-bottom: 100px;
 }
-.p-section-services .l-wrapper{
-
+.p-section-services{
+    overflow: hidden;
 }
 .p-section-services__subtitle{
-    margin: 100px 0 50px 0;
+    margin: 100px 0 20px 0;
     font-size: var(--fs-h2);
     line-height: calc(44/36);
     color: #132238;
@@ -459,9 +465,11 @@ body {
     margin: 0;
 }
 .p-section-services__section-photos{
-    display: flex;
+    display: grid;
     width: calc(648/1320*100%);
-    gap:24px;
+    gap:24px;   
+    overflow: visible;
+    grid-template-columns: repeat(3,minmax(312px,1fr));
 }
 .p-section-services__section-photos-item{
     width: 100%;
@@ -754,7 +762,7 @@ body {
     font-size: 16px;
     line-height: calc(24/16);
     color: #556070;
-
+    margin-bottom: 32px;
 }
 .p-footer__contact-information{
 
@@ -763,9 +771,40 @@ body {
 
 }
 .p-footer__contact-information-item-link{
-    padding-left: 72px;
     display: block;
     margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    position: relative;
+    transition: background 0.3s ease;
+}
+.p-footer__contact-information-item-link:hover{
+    background-color: #EAF7ED;
+    transform: scale(1.1);
+}
+.p-footer__contact-information-item-link:hover .p-footer__contact-information-item-link-image-hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+.p-footer__contact-information-item-link-image{
+    padding: 16px;
+    border-radius: 100px;
+    background-color: #EAF7ED;
+    object-fit: cover;
+    width: calc(56/424 *100%);
+}
+.p-footer__contact-information-item-link-image-hover{
+    padding: 16px;
+    border-radius: 100px;
+    background-color: #2DB24A;
+    object-fit: cover;
+    width: calc(56/424 *100%);
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.p-footer__contact-information-item-link-content{
+    width: calc(352/424 *100%);
 }
 .p-footer__contact-information-item-link-top{
     font-size: 14px;
@@ -919,7 +958,8 @@ body {
     box-shadow: 0 0 0 1px #2DB24A;
 }
 .l-footer__form-button:hover::before{
-     background: url(../assets/icons/l-footer__form-button-icon-hover.svg) no-repeat center / 24px 24px;
+    transition: background 0.3s ease;
+    background: url(../assets/icons/l-footer__form-button-icon-hover.svg) no-repeat center / 24px 24px;
 }
 .l-footer__form-button::before{
     content: "";
@@ -946,6 +986,11 @@ body {
     color: #556070;
     font-size: 16px;
     line-height: calc(24/16);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.l-footer__nav-link:hover{
+    text-shadow: 0 0 0 #132238;
+    color: #132238;
 }
 .l-footer__footer-link{
     color: #132238;
