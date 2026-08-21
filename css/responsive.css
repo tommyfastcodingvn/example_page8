@@ -1,0 +1,164 @@
+@media (min-width: 768px) {
+    .l-header__hamburger { display: none !important; }
+    .l-header__nav { display: flex !important; }
+}
+@media (max-width: 767px) {
+    .l-wrapper:nth-child(n){
+        width: min(1320px, calc(100% - 32px));
+        margin: 0 auto;
+    }
+    .l-header__hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 100000; 
+    }
+    .l-header__hamburger-line { 
+        background-color: #ffffff; 
+    }
+    
+    .l-header__hamburger.is-active .l-header__hamburger-line { background-color: #fff; }
+    .l-header__hamburger.is-active .l-header__hamburger-line:nth-child(1) { transform: translateY(8px) rotate(-45deg); }
+    .l-header__hamburger.is-active .l-header__hamburger-line:nth-child(2) { opacity: 0; }
+    .l-header__hamburger.is-active .l-header__hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(45deg); }
+
+    .l-header__nav {
+        position: fixed;
+        inset: 0;
+        background: #132238; 
+        z-index: 99999;
+        display: none; 
+        padding-top: 100px;
+        overflow-y: auto;
+    }
+
+    .l-header__nav-list {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .l-header__nav-link,
+    .l-header__nav-link-number {
+        color: #ffffff !important;
+        font-size: 18px;
+    }
+    .p-section-hero__top .l-wrapper{
+        display: block;
+        padding: 32px 0 100px 0;
+    }
+    .p-section-hero__top-title,.p-section-hero__top-content{
+        width: 100%;
+    }
+    .p-section-hero__top-list{
+        flex-wrap: wrap;
+    }
+    .p-section-hero__top-link{
+        justify-content: center;
+        gap: 12px;
+        min-width: 200px;
+    }
+    .p-section-hero__photos {
+        transform: translateY(-50px); 
+    }
+    .p-section-hero__photos-list {
+        overflow-x: auto !important; 
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory; 
+        gap: 16px; 
+        padding: 0 20px; 
+    }
+    .p-section-gallery__heading-icon-hover{
+        top: auto;
+        left:auto;
+        transform: translateX(43px);
+    }
+    .p-section-hero__photos-list::-webkit-scrollbar {
+        display: none;
+    }
+    .p-section-hero__photos-item {
+        flex: 0 0 25%; 
+        width: 25% !important; 
+        scroll-snap-align: center; 
+    }
+    .p-section-hero__photos-item:nth-child(2n-1) {
+        margin-bottom: 0px; 
+    }
+    .p-section-hero__photos-item:nth-child(2n) {
+        margin-top: 0px; 
+    }
+    .p-section-about .l-wrapper{
+        display: block;
+        margin-top: 0;
+        padding-bottom: 32px;
+    }
+    .p-section-about__content,.p-section-about__photo {
+        width: 100%;
+    }
+    .p-section-about__photo{
+        margin-top: 32px;
+    }
+    .p-section-about__photo-funfact {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+    .p-section-about__photo-item{
+        min-width: 0;
+        box-shadow: 1px 1px 0 0 #E6E8EB;
+        margin: 16px 0 0 0 ;
+        padding: 24px;
+        text-align: center;
+    }
+    .p-section-gallery__heading{
+        display: block;
+        margin: 32px 0 32px 0;
+    }
+    .p-section-gallery__heading-button{
+        margin: 16px auto 0 auto ;
+        width: 80%;
+        justify-content: center;
+    }
+    .p-section-plans{
+        padding: 32px 0;
+    }
+    .p-section-plans .l-wrapper{
+        padding-bottom: 32px;
+    }
+    .p-section-blog .l-wrapper{
+        padding: 32px 0;
+    }
+    .p-section-posts .l-wrapper{
+        padding: 32px 0;
+    }
+    .p-section-contact{
+        padding-top: 32px;
+    }
+    .p-section-contact .l-wrapper{
+        padding: 32px 16px;
+    }
+    .p-section-contact__contact-connect{
+        padding: 16px;
+    }
+    .p-section-contact__contact-connect-list{
+        grid-template-columns: repeat(auto-fit, minmax(40px, 48px));
+
+    }
+    .p-section-contact__contact{
+        border-right: none;
+        padding-right: 0;
+    }
+    .p-section-contact__contact{
+        min-width: 250px;
+    }
+    .p-section-contact__form{
+        min-width: 0;
+    }
+    .p-section-contact__form-button{
+        margin:  0 auto;
+    }
+    .l-footer .l-wrapper{
+        flex-direction: column;
+        gap: 12px;
+    }
+}

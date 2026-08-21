@@ -15,7 +15,6 @@
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
-
 <body>
     <div class="l-container">
         <header class="l-header">
@@ -24,6 +23,11 @@
                     <img src="./assets/images/header_logo.svg" alt="Robert Warren" loading="eager" width="214"
                         height="48" class="l-header__logo-image">
                 </a>
+                <button class="l-header__hamburger js-button-hamburger" id="hamburger-menu" aria-label="Menu">
+                    <span class="l-header__hamburger-line"></span>
+                    <span class="l-header__hamburger-line"></span>
+                    <span class="l-header__hamburger-line"></span>
+                </button>
                 <nav class="l-header__nav">
                     <ul class="l-header__nav-list">
                         <li class="l-header__nav-item"><a href="#home" class="l-header__nav-link">Home</a></li>
@@ -68,12 +72,12 @@
                                 </li>
                                 <li class="c-button--primary  p-section-hero__top-item">
                                     <a href="#" class=" p-section-hero__top-link">
-                                        <span class="p-section-hero__top-link-button">
-                                            Get in touch
-                                        </span>
                                         <img src="./assets/icons/hero__icon_right.svg" alt=""
                                             loading="eager" width="24" height="24"
                                             class="p-section-hero__top-link-icon">
+                                        <span class="p-section-hero__top-link-button">
+                                            Get in touch
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -785,16 +789,56 @@
                         <li class="l-footer__nav-item"><a href="#home" class="l-footer__nav-link">Home</a></li>
                         <li class="l-footer__nav-item"><a href="#about" class="l-footer__nav-link">About</a></li>
                         <li class="l-footer__nav-item"><a href="#gallery" class="l-footer__nav-link">Gallery</a></li>
-                        <li class="l-header__nav-item"><a href="#blog" class="l-footer__nav-link">Blog</a></li>
-                        <li class="l-header__nav-item"><a href="#contact" class="l-footer__nav-link">Contact</a></li>
+                        <li class="l-footer__nav-item"><a href="#blog" class="l-footer__nav-link">Blog</a></li>
+                        <li class="l-footer__nav-item"><a href="#contact" class="l-footer__nav-link">Contact</a></li>
                     </ul>
                 </nav>
                 <small class="l-footer__link">
                     <span style='font-size:14px;'>&#169;</span> 2022 Robert Warren
                 </small>
             </div>
+            <div class="u-hover-trans l-footer__mode">
+                <img src="./assets/icons/icon_mode.svg" alt="" loading="eager" width="24" height="24" class="l-footer__mode-icon">
+            </div>
         </footer>
     </div>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+var app = app || {};
+app.init = function () { app.navigationBlock(); };
+var offsetY = window.pageYOffset;
 
+app.closeMenuBlock = function () {
+    $('body').css({ position: 'static', top: 'auto', minWidth: '0' });
+    $(window).scrollTop(offsetY);
+};
+
+app.navigationBlock = function () {
+    var navigationBlock = $('.l-header__nav'); 
+    
+    $('.js-button-hamburger').click(function () {
+        $(this).toggleClass('is-active');
+        if ($(this).hasClass('is-active')) {
+            offsetY = window.pageYOffset;
+            $('body').css({ position: 'fixed', top: -offsetY + 'px', width: '100%' });
+            navigationBlock.stop().fadeIn(300);
+        } else {
+            app.closeMenuBlock();
+            navigationBlock.stop().fadeOut(300);
+        }
+        return false;
+    });
+
+    $('.l-header__nav-link').click(function () {
+        if ($('.js-button-hamburger').is(':visible')) {
+            $('.js-button-hamburger').removeClass('is-active');
+            app.closeMenuBlock();
+            navigationBlock.stop().fadeOut(300);
+        }
+    });
+};
+
+$(function () { app.init(); });
+</script>
+</body>
 </html>
